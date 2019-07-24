@@ -74,6 +74,9 @@ public class StaticEntries {
 	 * @return A cookie that encodes the application ID and a hash
 	 */
 	public static U64 computeEntryCookie(int userCookie, String name) {
+		if (userCookie != 0) {
+			return U64.of(userCookie);
+		}
 		// flow-specific hash is next 20 bits
 		int prime = 211;
 		int hash = 2311;
